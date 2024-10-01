@@ -25,8 +25,9 @@ def tokenizer(sent):
 
 
 def tokenizer_spacy(sent):
+  string = cleaning(sent)
   tokenized_sent = []
-  for i in nlp(sent):
+  for i in nlp(string):
     tokenized_sent.append(i)
   
   return tokenized_sent
