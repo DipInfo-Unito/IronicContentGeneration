@@ -1,6 +1,6 @@
 # IronicContentGeneration
 
-> These data are released as part of the paper **I'm sure you're a real scholar yourself: Exploring Ironic Content Generation by Large Language Models** (Balestrucci et al.) accepted at **EMNLP 2024 Findings**.
+> These data are released as part of the paper **I'm sure you're a real scholar yourself: Exploring Ironic Content Generation by Large Language Models** (Balestrucci P. F., Casola S., Lo S. M., Basile V. and Mazzei A.) accepted at **EMNLP 2024 Findings**.
 >
 > For a more in-depth analysis of the data, please refer to the paper.
 
