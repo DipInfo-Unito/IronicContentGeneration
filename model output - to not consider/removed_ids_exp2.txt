@@ -1,0 +1,51 @@
+lista_parent_cancellati = [
+"1579723813620944896",
+"1580035289006817280",
+"1579757446801002496",
+"fjc7rcq",
+"1579742011846184960",
+"1579753297002758146",
+"1579739548212670465",
+"fjcj3me",
+"fj5preb",
+"fj6ylhi",
+"1579571193338040320",
+"1579742664349876224",
+"1572501686031360000",
+"1572499496688570370",
+"fjam4g8",
+"1580015843953766401",
+"1579904821766672384",
+"1579754796760039424"
+]
+
+removed_duplicates = [
+"fj991z4",
+"fj5961l",
+"fj5cknd",
+"fj7mlnq",
+"1572511023005048838",
+"fj8zyh4",
+"1537859348956909568",
+"fj7ha0g",
+"1580539847814811651"
+]
+
+same_parent = {
+case_1: ["The four seasons in Australia are Summer, Summer, Winter and Summer.", "fj85v4k", "fj991z4"],
+case_2: ["The theory that Epstein didn't kill himself. Memes aside, he could've probably exposed a lot more rich people for their sex crimes. They just bumped him off before he could do so.", 
+         "fj5ck2l", "fj5961l"],
+case_3: ["The theory that Epstein didn't kill himself. Memes aside, he could've probably exposed a lot more rich people for their sex crimes. They just bumped him off before he could do so.", 
+         "fj5ck2l", "fj5cknd"],
+case_4: ["Can't get it without being anti-national.", "fj7r22t", "fj7mlnq"],
+case_5: ["Is there anyone else on twitter today that didn't watch any of the pageantry on the TV.", "1572500487873892355", "1572511023005048838"],
+case_6: ["All these people who start feeling dizzy, nauseous after 30 kms of car ride with or without AC should be considered as weaker section human civilization and be barred from travelling", "fj92saa", "fj8zyh4"]
+case_7: ["BabyDoc passed all 4th year exams, that’s made my week #grateful", 
+         "1537861280551383044", "1537859348956909568"],
+case_8: ["Context: I was recently booted from a perm part time job that I held for a year, after I was made casual 2 weeks prior to being booted and hours going from 20+ a week to 3-6. Placed back into Newstart I was apparently in the 'work for the dole phase' where I had on my file that "Essential Skills for Work" was a course that is mandatory to complete. 2 weeks, 9 till 2 of the most transparent cash grab of a course I have ever seen. English is broken at best, most multiple choices don't actually have correct values in them (i.e one wanted to calculate 15 hours of pay at $17.50 an hour, but had 5 choices all under $70). I am currently trying to complete a supplementary course in Python, specifically ML, and was going to use my free time during the day to jobsearch... Mandatory. 5 hours a day for 2 weeks. I have to sit in this popup office and cannot complete it in my own time at my home computer. Doing this blatant government supplement cash grab that we're all paying for. None of the people who 'work' in the office actually have anything to do with the course; all they do is schedule and mark you off as attended. LP Pathways is the name of the provider of this gem. Edit: Bonus image. Parts of the course that require supervision are just ignored as that would be a waste of profit. Edit 2, the sequel: It is not too. Currently lodging a formal complaint as my Employment Provider is refusing to negotiate my contract with them to get me out of this nightmare.", 
+         "fj6t17u", "fj7ha0g"],
+case_9: ["If your Twitter Crush said “Ima be in your area a couple hours away, can you come and let me take you on a date?” Not a link, a legit date. Would you go? Or no? Are you scared", 
+         "1580540338238009346", "1580539847814811651"]
+}
+
+

@@ -1,0 +1,67 @@
+lista_parent_cancellati = [
+"1579300909359980544",
+"1579737375923924992",
+"1579750140017278976",
+"1579748088373477377",
+"fj5vjya",
+"1579758197686284289",
+"1579716607030751233",
+"1569996671358238720",
+"1580039891336851456",
+"1579837055194267649",
+"1578129800728023040",
+"1579748811144310785",
+"1538755893692604417"]
+
+removed_duplicates = [
+"1572499950386417668",
+"1578593464539033600"
+"1572510813189206017",
+"1579734973690806273",
+"fjawujo",
+"fj9nj5x",
+"fj5apz7",
+"1572501203753504768",
+"1580040527558287364",
+"fj9g7ms",
+"1579339920409513985",
+"fj85o37",
+"1572525590552678403",
+"1572501133779955712",
+"1572511137358565377",
+"1579745056604688385",
+"1580556628247465986"
+]
+
+same_parent = {
+case_1:["I hate people who use big words just to make themselves look perspicacious.", "1578449215663280128","1578593464539033600"],
+case_2: ["Code with music or without?", "1572460793760976896","1572499950386417668"],
+case_3: ["Do join @JuliaHB1 and me on @TalkTV at 9 am. On all matters EU and of course Northern Ireland. And to all remainers who feared so chlorinated chicken but now want a deal with the US: Northern Ireland’s place in the UK trumps your new found sensibilities.", 
+"1572500480315781121", "1572510813189206017"],
+case_4: ["Any idea why Infosys futures is at 24-25 buck discount to spot? Dividend is only around 16 or so?", "ù1579994514592518144", "1579734973690806273"],
+case_5: ["I have a bidet so can ration toilet paper pretty well but I guess a lot of people can't :P I can understand why people might stock up on it if they're worried though, they'll eventually use it so not really a waste of money plus it's one of my worst nightmares to run out of toilet paper and I think I'm not alone in that fear.",
+"fj9ig5k","fjawujo"],
+case_6: ["It’s Official! I’m Irish!", "fj9huus", "fj9nj5x"],
+case_7: ["Google Maps only asks you for feedback on its navigation when it knows it did a good job.I use navigation all the time, and I find that when it gets me to the destination on time or earlier than predicted, I get a notification asking to rate the trip. But if it gets me there after it originally estimated, I never get that notification.",
+"fj52sd4", "fj5apz7"],
+case_8: ["Someone I don't know sent me a message saying I'm a very arrogant girl,Do you also think that I am such a person???", "1572483502175817728", "1572501203753504768"],
+case_9: ["Two most difficult areas in counseling in medicine - 1. Convincing a patient with widal positive test that they don't need an antibiotic 2. Convincing patient to start/switch to insulin when the situation demands.#MedTwitter Any other issues frequently faced in counseling?", 
+"1580021779246231552", "1580040527558287364"],
+case_10: ["I know a few people who are acting like it is doomsday stocking up on everything. I know several people that don't give a shit. I know some people that are just avoiding crowds/sick people/using common sense and washing their damn hands. Honestly, if you didn't give a shit about flu season for the past two decades, why are you acting so scared or proactive around covid virus?", 
+"fj9ct25", "fj9g7ms"],
+case_11: ["Man creates bondage, grief, tension and problems through action. He creates enemies through action; and when he performs good action, he achieves God through action. #AsharamjiBapuQuotes", 
+"1579492552738496513", "1579339920409513985"],
+case_12: ["Because she invested her own money to have the place cleaned up and painted. Now the landlord can command more rent from a new tenant.", 
+"fj88ytw",  "fj85o37"],
+case_13: ["It's also fascinating to see people on the Left suddenly screaming 'The markets are losing confidence in the Truss plan!!! Look at the pound!!!! Look at the ratings agencies!!!! We have to listen to the markets!!!!''.", 
+"1572514570698358784", "1572525590552678403"],
+case_14: ["It's also fascinating to see people on the Left suddenly screaming 'The markets are losing confidence in the Truss plan!!! Look at the pound!!!! Look at the ratings agencies!!!! We have to listen to the markets!!!!''.", 
+"1572514570698358784","1572501133779955712"]
+case_15: ["So Peter Obi lied to Nigerians when he said 'I studied Philosophy'.There is no subject called Philosophy in GCE.", 
+"1572503659703074816", "1572511137358565377"],
+case_16: ["Please say a prayer for me for I feel very alone tonight.","1579742444081799169", "1579745056604688385" ],
+case_17: ["Kevin Sorbo is asking people if they regret getting the jab, firing up thousands of MAGA lunatics in the comments. Let's fight back.Drop me a ? below if you are HAPPY you got vaccinated! ?", 
+"1580547682271051778", "1580556628247465986"],
+}
+
+
