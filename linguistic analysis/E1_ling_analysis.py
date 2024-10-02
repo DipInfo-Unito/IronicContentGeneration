@@ -85,20 +85,17 @@ print('human post:')
 print('\t', parent_ent)
 print('human reply:')
 print('\t', h_ent)
-print('generated reply:')
+print('generated reply IRO:')
 print('\t',generated_iro_ent)
+print('generated reply NIRO:')
+print('\t',generated_niro_ent)
 
 print("\n","MATCH POST-IRO named entities")
 count_post, count_generated_iro, count_i_match = matching_entities(dict_parent_ents, dict_g_iro_ents)
-print("full values in post: ", count_post)
-print("full values in generated IRO reply: ", count_generated_iro)
-print("matching cases post-IRO: ", count_i_match)
 
 print("\n","MATCH POST-NIRO named entities")
 count_post, count_generated_niro, count_n_match = matching_entities(dict_parent_ents, dict_g_niro_ents)
-print("full values in post: ", count_post)
-print("full values in generated NIRO reply: ", count_generated_niro)
-print("matching cases post-IRO: ", count_n_match)
+
 
 
 

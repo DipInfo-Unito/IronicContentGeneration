@@ -92,8 +92,6 @@ plt.setp(fig._legend.get_texts(), fontsize='13')
 fig.savefig("./linguistic analysis/plots/similarity_parent_exp1.png")
 
 
-
-
 list_sim_human_iro = human_similarity(original_iro)
 list_sim_human_not = human_similarity(original_not)
 
