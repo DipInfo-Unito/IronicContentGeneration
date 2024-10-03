@@ -102,8 +102,8 @@ print("mean similarities parent-model IRO -->", round(np.average(similarity_text
 print("mean similarities parent-model NIRO -->", round(np.average(similarity_text["NIRO model"].tolist()),3))
 
 print()
-print("mean similarity parent-human reply ironic-->", round(np.std(list_sim_human_iro),3))
-print("mean similarity parent-human reply not ironic-->", round(np.std(list_sim_human_not),3))
-print("mean similarity parent-human reply -->", round(np.std(similarity_text["Human reply"].tolist()),3))
-print("mean similarities parent-model IRO -->", round(np.std(similarity_text["IRO model"].tolist()),3))
-print("mean similarities parent-model NIRO -->", round(np.std(similarity_text["NIRO model"].tolist()),3))
+print("std similarity parent-human reply ironic-->", round(np.std(list_sim_human_iro),3))
+print("std similarity parent-human reply not ironic-->", round(np.std(list_sim_human_not),3))
+print("std similarity parent-human reply -->", round(np.std(similarity_text["Human reply"].tolist()),3))
+print("std similarities parent-model IRO -->", round(np.std(similarity_text["IRO model"].tolist()),3))
+print("std similarities parent-model NIRO -->", round(np.std(similarity_text["NIRO model"].tolist()),3))

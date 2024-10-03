@@ -1,6 +1,6 @@
 import pandas as pd
 
-from utils.prepare_initial_df import Experiment_1
+from utils.prepare_initial_df import *
 
 #Prepare the dataframe
 dir_IRO = "./aggregated_outputs/aggregated_True_mask_no_user.csv"
@@ -32,36 +32,21 @@ def get_aggregated_text(row):
     else:
         return None
     
-
-def convert_label(label):
-    if label == -2:
-        return "Strongly Disagree"
-    elif label == -1:
-        return "Disagree"
-    elif label == 0:
-        return "Neither Agree nor Disagree"
-    elif label == 1:
-        return "Agree"
-    elif label == 2:
-        return "Strongly Agree"
-    else:
-        return "error"
-
-
-
-
 # Read the dataset
 df_annotations = pd.read_csv("./qualtrics annotation/E1_clean.csv", sep=",")
 print(df_annotations.shape)
+
 
 # Drop attention columns
 attention_cols = [c for c in df_annotations.columns if c.startswith("attention")]
 df_annotations = df_annotations.drop(attention_cols, axis=1)
 
+
 #Check if annotator who did not complete the task is in the cleaned dataset
 for i in df_annotations["PROLIFIC_PID"]: 
     if i == "663c1a1ed18ce928e9b08f9a":
         print ("The dataset has not been correctly cleaned")
+
 
 # Retrieve the model_id
 col_names = df_annotations.columns.tolist()
@@ -86,13 +71,15 @@ df_final = df_melted[["id_original", "PROLIFIC_PID", "Duration (in seconds)",
                   "Finished", "RecordedDate", "ResponseId", "all_attentions",
                     "model", "label"]].sort_values(by=["id_original","PROLIFIC_PID"])
 
+
 # list of annotators 
 list_ann_pre = (df_final["PROLIFIC_PID"].drop_duplicates().tolist())
 
+
 # remove empty labels
 df_final["id_original"] = df_final["id_original"].str.replace(']', '', regex=False)
-# df_final = df_final.dropna(subset="label")
-# df_final.reset_index(drop=True, inplace=True)
+df_final = df_final.dropna(subset="label")
+df_final.reset_index(drop=True, inplace=True)
 
 list_ann_post = (df_final["PROLIFIC_PID"].drop_duplicates().tolist())
 for i in list_ann_pre:
@@ -100,6 +87,7 @@ for i in list_ann_pre:
         print(i)
 
 
+#merge with post and reply 
 df_final = df_final.merge(model_iro[["parent_text", "id_original"]], on="id_original")
 df_final["aggregated"] = df_final.apply(get_aggregated_text, axis=1)
 df_final["label"] = df_final["label"].apply(convert_label)
@@ -108,12 +96,16 @@ df_final = df_final[['id_original', 'PROLIFIC_PID', 'Duration (in seconds)', 'Fi
        'RecordedDate', 'ResponseId', 'all_attentions', 'parent_text',
        'aggregated','model', 'label']]
 
-df_final = df_final.rename(columns={"parent_text": "Post", "aggregated": "Reply", "PROLIFIC_PID":"Participant id"}).replace({"ironic":"IRO", "notironic":"NIRO"})
-print(df_final.shape)
 
+#rename the columns
+df_final = df_final.rename(columns={"parent_text": "Post", "aggregated": "Generated Reply", "PROLIFIC_PID":"Participant id"}).replace({"ironic":"IRO", "notironic":"NIRO"})
+
+
+#add annotators demographics and filter to accepted annotators only 
 demographics = pd.read_csv("/home/marem/VscProjects/theGIRLS/dem_data/demographics_E1.csv")
 df_final = df_final.merge(demographics, on="Participant id")
-print(df_final.shape)
 
-df_final.to_csv("./final_datasets/E1_dataset_merge.csv")
-print(df_final.shape)
+
+print("total anotations: ", df_final.shape)
+print("total annotators: ", len(df_final["Participant id"].drop_duplicates().tolist()))
+df_final.to_csv("./final_datasets/Experiment_1_dataset.csv")
