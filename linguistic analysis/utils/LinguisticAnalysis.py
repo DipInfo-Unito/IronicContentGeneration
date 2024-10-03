@@ -89,7 +89,7 @@ def matching_entities (dict_1, dict_2):
     count_2 =0
     count_match =0
     list_matches = []
-    list_ner_iniro = []
+    list_ner_in = []
 
     for key,value in dict_1.items():
         if len(value) != 0:
@@ -103,13 +103,29 @@ def matching_entities (dict_1, dict_2):
     for k,v in dict_2.items():
         if len(v) != 0:
             count_2 +=1
-            list_ner_iniro.append(k)
+            list_ner_in.append(k)
 
     print("full values in parent: ", count_1)
     print("full values in generated: ", count_2)
     print("matching cases: ", count_match)
 
-    return count_1, count_2, count_match
+    return count_1, count_2, count_match, list_ner_in
+
+
+def ner_df (dict_parent, dict_h, dict_g, list_ner_in, model, DIR, naming):
+
+    df_ner_parent = pd.DataFrame(dict_parent.items(), columns=["id_original", "ner_parent"])
+    df_ner_h = pd.DataFrame(dict_h.items(), columns=["id_original", "ner_original"])
+    df_ner_g = pd.DataFrame(dict_g.items(), columns=["id_original", "ner_aggregated"])
+
+    df_ner = pd.merge(df_ner_parent, df_ner_g, on="id_original")
+    df_ner = pd.merge(df_ner, model[["id_original", "parent_text","aggregated"]], on="id_original")
+    df_ner_match = df_ner[df_ner.id_original.isin(list_ner_in)].reset_index(drop=True)
+    df_ner_match.to_csv(DIR + f"ner_{naming}.csv")
+
+    return df_ner_match
+
+
 
 #Nominal utterances 
 def nominal_utterance(sent):

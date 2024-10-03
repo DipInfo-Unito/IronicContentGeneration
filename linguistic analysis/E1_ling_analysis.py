@@ -91,11 +91,14 @@ print('generated reply NIRO:')
 print('\t',generated_niro_ent)
 
 print("\n","MATCH POST-IRO named entities")
-count_post, count_generated_iro, count_i_match = matching_entities(dict_parent_ents, dict_g_iro_ents)
+count_post, count_generated_iro, count_i_match, list_ner_i = matching_entities(dict_parent_ents, dict_g_iro_ents)
 
 print("\n","MATCH POST-NIRO named entities")
-count_post, count_generated_niro, count_n_match = matching_entities(dict_parent_ents, dict_g_niro_ents)
+count_post, count_generated_niro, count_n_match, list_ner_n = matching_entities(dict_parent_ents, dict_g_niro_ents)
 
+dir_manual_annotation = "./linguistic analysis/manual_annotation/ner_model_IRO.csv"
+df_ner_match_i = ner_df(dict_parent_ents, dict_h_ents, dict_g_iro_ents, list_ner_i, model_iro, dir_manual_annotation, "IRO")
+df_ner_match_n = ner_df(dict_parent_ents, dict_h_ents, dict_g_niro_ents, list_ner_n, model_niro, dir_manual_annotation, "NIRO")
 
 
 

@@ -50,24 +50,25 @@ def convert_label(label):
 
 
 
-
+# Read the dataset
 df_annotations = pd.read_csv("./qualtrics annotation/E1_clean.csv", sep=",")
+print(df_annotations.shape)
 
+# Drop attention columns
 attention_cols = [c for c in df_annotations.columns if c.startswith("attention")]
 df_annotations = df_annotations.drop(attention_cols, axis=1)
 
-
+#Check if annotator who did not complete the task is in the cleaned dataset
 for i in df_annotations["PROLIFIC_PID"]: 
     if i == "663c1a1ed18ce928e9b08f9a":
-        print ("upsy")
+        print ("The dataset has not been correctly cleaned")
 
-
+# Retrieve the model_id
 col_names = df_annotations.columns.tolist()
-
 col_id = [col for col in col_names if "ironic" in col or "notironic" in col]
 
 
-# Usiamo melt per ristrutturare il dataframe
+# Restructuring the df
 df_melted = df_annotations.melt(id_vars=["StartDate", "EndDate", "Status", "IPAddress", "Progress", "Duration (in seconds)",
                   "Finished", "RecordedDate", "ResponseId", "RecipientLastName", "all_attentions",
                   'RecipientFirstName', 'RecipientEmail', 'ExternalReference',
@@ -76,20 +77,22 @@ df_melted = df_annotations.melt(id_vars=["StartDate", "EndDate", "Status", "IPAd
                     var_name="model_id", value_name="label")
 
 
-# Separiamo la colonna "model_id" in due colonne "model" e "id"
+# Separate the column “model_id” into two columns “model” and “id”
 df_melted[["model", "id_original"]] = df_melted["model_id"].str.split("_", expand=True)
 
 
-# Riorganizziamo le colonne e ordiniamo per "date" per avere l'output desiderato
+# Rearrange the columns and sort by “dates” to get the desired output
 df_final = df_melted[["id_original", "PROLIFIC_PID", "Duration (in seconds)",
                   "Finished", "RecordedDate", "ResponseId", "all_attentions",
                     "model", "label"]].sort_values(by=["id_original","PROLIFIC_PID"])
 
+# list of annotators 
 list_ann_pre = (df_final["PROLIFIC_PID"].drop_duplicates().tolist())
 
+# remove empty labels
 df_final["id_original"] = df_final["id_original"].str.replace(']', '', regex=False)
-df_final = df_final.dropna(subset="label")
-df_final.reset_index(drop=True, inplace=True)
+# df_final = df_final.dropna(subset="label")
+# df_final.reset_index(drop=True, inplace=True)
 
 list_ann_post = (df_final["PROLIFIC_PID"].drop_duplicates().tolist())
 for i in list_ann_pre:
@@ -106,8 +109,11 @@ df_final = df_final[['id_original', 'PROLIFIC_PID', 'Duration (in seconds)', 'Fi
        'aggregated','model', 'label']]
 
 df_final = df_final.rename(columns={"parent_text": "Post", "aggregated": "Reply", "PROLIFIC_PID":"Participant id"}).replace({"ironic":"IRO", "notironic":"NIRO"})
+print(df_final.shape)
+
 demographics = pd.read_csv("/home/marem/VscProjects/theGIRLS/dem_data/demographics_E1.csv")
 df_final = df_final.merge(demographics, on="Participant id")
+print(df_final.shape)
 
 df_final.to_csv("./final_datasets/E1_dataset_merge.csv")
 print(df_final.shape)
